@@ -1,0 +1,542 @@
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  
+  
+  /* 공지사항 드랍다운 관련하여서 만든 파일*/
+  *{padding:0;margin-top:0}
+  li{list-style:none}
+  a{text-decoration:none;font-size:14px}
+  
+  
+  .menu {
+      width: 100%;
+      overflow: hidden;
+      margin: 20px auto;
+      margin-top: -230px;
+    }
+    
+    .menu > li {
+      width: 20%; /*20*5=100%*/
+      float: left;
+      text-align: center;
+      line-height: 40px;
+      background-color: black; /*배경색 지정은 검정색으로 해두었음*/
+    }
+    
+    .menu a {
+      color: white; /*글자크기는 노란색으로 지정*/
+      position: relative;
+  
+  
+      
+    }
+    
+    .submenu > li {
+      line-height: 50px;
+      background-color: black; /* 공지사항을 눌렀을때 뜨는 서브메뉴의 백그라운드 색상을 검정으로 지정*/
+      width: 380px;
+  
+    }
+    
+    .submenu {
+      height: 0; /*ul의 높이를 안보이게 처리*/
+      overflow: hidden;
+      position: absolute; z-index:2 /* absolute 기능을 사용하여 메뉴 드랍다운 기능을 써도 밑에 있는 문서가 올라갔다 내려갔다 하지않게 고정해두었음*/
+      /*https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=hckim108&logNo=40140167806 */ 
+    }
+  
+    .menu > li:hover {
+      background-color: black; /* 공지사항을 눌렀을때 뜨는 서브메뉴의 백그라운드 색상을 검정으로 지정*/
+      transition-duration: 0.5s;
+    }
+    
+    .menu > li:hover .submenu {
+      height: 250px; /*서브메뉴 li한개의 높이 50*5*/
+      transition-duration: 1s;
+    }
+  
+  /* 스크롤시 따라오는 메뉴바 기능 관련 박스 */
+  div, ul, li {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0}
+  a {text-decoration:none;}
+  
+  .quickmenu {position:absolute;width:200px;top:50%;margin-top: 260px;right:0px;background:black;z-index:2} /*메뉴바 배경색깔 그리고 크기 조정 가능*/
+  .quickmenu ul {position:relative;float:left;width:100%;display:inline;border:1px solid #ddd;}
+  .quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline;}
+  .quickmenu ul li a {position:relative;float:left;width:100%;height:30px;line-height:30px;text-align:center;color: white;font-size:9.5pt;}/*글자 색깔및 위치 조정*/
+  .quickmenu ul li a:hover {color:white; background-color: gray;} /*메뉴바에 마우스 올릴시 빨간색으로 바뀌어서 출력됨*/
+  .quickmenu ul li:last-child {border-bottom:0;}
+  
+  .content {position:relative;min-height:1000px;}
+  
+  #footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1px;
+    overflow: hidden;
+  }
+  
+  #footer-block {
+    padding: 30px 0 30px;
+    width: 100%;
+    height: -50px;
+    margin: 0 auto;
+    letter-spacing: -0.5px;
+    background-color: black;
+  }
+  
+  .footer-link {
+    width: 65%;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: 27px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: top;
+  }
+  
+  .footer-link>a {
+    display: inline-block;
+    margin-right: 32px;
+    vertical-align: top;
+  }
+  
+  .footer-contact {
+    float: right;
+    width: 35%;
+    text-align: right;
+    color: #fff;
+  }
+  
+  .footer-num {
+    font-size: 16px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    padding-right: 32px;
+  }
+  
+  .footer-on {
+    letter-spacing: 0.5px;
+    font-size: 13px;
+  }
+  
+  .footer-date {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    color: #989898;
+    padding-right: 6px;
+    padding-left: 12px;
+  }
+  
+  #footer-company-info {
+    color: #989898;
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 30px;
+  }
+  
+  .footer-policy {
+    display: inline-block;
+    padding-top: 2px;
+  }
+  
+  .footer-policy span {
+    display: inline-block;
+    padding-right: 13px;
+    text-decoration: underline;
+  }
+  
+  .footer-policy span.white {
+    color: #fff;
+  }
+  
+  .footer-inc {
+    text-decoration: none!important;
+    padding-right: 13px;
+  }
+  
+  #footer-awards {
+    background: #eee;
+    text-align: center;
+  }
+  
+  #footer-awards-inner {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+  
+  .footer-award-item {
+    margin: 24px 10px 20px;
+    padding: 5px 10px;
+    background-color: #fcfcfc;
+    border: 1px solid #dfdfdf;
+  }
+  
+  .footer-award-item:before {
+    content: '';
+    display: block;
+    padding-top: 36.290323%;
+    background: url(/static/pages/img/service/bases/footer/awards_sprite.png);
+    background-size: 100%
+  }
+  
+  .footer-award-item.award01:before {
+    background-position-y: 0
+  }
+  
+  .footer-award-item.award02:before {
+    background-position-y: -100%
+  }
+  
+  .footer-award-item.award03:before {
+    background-position-y: -200%
+  }
+  
+  .footer-award-item.award04:before {
+    background-position-y: -300%
+  }
+  
+  .footer-award-item.award05:before {
+    background-position-y: -400%
+  }
+  
+  .footer-award-item.award06:before {
+    background-position-y: -500%
+  }
+  
+  .footer-award-item.award07:before {
+    background-position-y: -600%
+  }
+  
+  .footer-award-item.award08:before {
+    background-position-y: -700%
+  }
+  
+  .footer-award-item.award09:before {
+    background-position-y: -800%
+  }
+  
+  .footer-award-item.award10:before {
+    background-position-y: -900%
+  }
+  
+  .footer-award-item.award11:before {
+    background-position-y: -1000%
+  }
+  
+  .footer-award-item.award12:before {
+    background-position-y: -1100%
+  }
+  
+  .footer-award-item.award13:before {
+    background-position-y: -1200%
+  }
+  
+  .footer-award-item.award14:before {
+    background-position-y: -1300%
+  }
+  
+  .footer-contact-sns {
+    position: relative;
+    height: 38px;
+    margin-right: 36px
+  }
+  
+  .footer-contact-icon {
+    display: inline-block;
+    border: 1px solid #4a4a4a;
+    background: url('') no-repeat #222;
+    background-size: 36px 252px;
+    overflow: hidden
+  }
+  #footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+  
+  #footer-block {
+    padding: 30px 0 30px;
+    width: 100%;
+    margin: 0 auto;
+    letter-spacing: -0.5px;
+    background-color:black;
+  }
+  
+  .footer-link {
+    width: 65%;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: 27px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: top;
+  }
+  
+  .footer-link>a {
+    display: inline-block;
+    margin-right: 32px;
+    vertical-align: top;
+  }
+  
+  .footer-contact {
+    float: right;
+    width: 35%;
+    text-align: right;
+    color: #fff;
+  }
+  
+  .footer-num {
+    font-size: 16px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    padding-right: 32px;
+  }
+  
+  .footer-on {
+    letter-spacing: 0.5px;
+    font-size: 13px;
+  }
+  
+  .footer-date {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    color: white;
+    padding-right: 6px;
+    padding-left: 12px;
+  }
+  
+  #footer-company-info {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 30px;
+  }
+  
+  .footer-policy {
+    display: inline-block;
+    padding-top: 2px;
+  }
+  
+  .footer-policy span {
+    display: inline-block;
+    padding-right: 13px;
+    text-decoration: underline;
+  }
+  
+  .footer-policy span.white {
+    color: #fff;
+  }
+  
+  .footer-inc {
+    text-decoration: none!important;
+    padding-right: 13px;
+  }
+  
+  #footer-awards {
+    background: #eee;
+    text-align: center;
+  }
+  
+  #footer-awards-inner {
+    max-width: 1152px;
+    margin: 0 auto;
+  }
+  
+  .footer-award-item {
+    margin: 24px 10px 20px;
+    padding: 5px 10px;
+    background-color: #fcfcfc;
+    border: 1px solid #dfdfdf;
+  }
+  
+  .footer-award-item:before {
+    content: '';
+    display: block;
+    padding-top: 36.290323%;
+    background: url(/static/pages/img/service/bases/footer/awards_sprite.png);
+    background-size: 100%
+  }
+  
+  .footer-award-item.award01:before {
+    background-position-y: 0
+  }
+  
+  .footer-award-item.award02:before {
+    background-position-y: -100%
+  }
+  
+  .footer-award-item.award03:before {
+    background-position-y: -200%
+  }
+  
+  .footer-award-item.award04:before {
+    background-position-y: -300%
+  }
+  
+  .footer-award-item.award05:before {
+    background-position-y: -400%
+  }
+  
+  .footer-award-item.award06:before {
+    background-position-y: -500%
+  }
+  
+  .footer-award-item.award07:before {
+    background-position-y: -600%
+  }
+  
+  .footer-award-item.award08:before {
+    background-position-y: -700%
+  }
+  
+  .footer-award-item.award09:before {
+    background-position-y: -800%
+  }
+  
+  .footer-award-item.award10:before {
+    background-position-y: -900%
+  }
+  
+  .footer-award-item.award11:before {
+    background-position-y: -1000%
+  }
+  
+  .footer-award-item.award12:before {
+    background-position-y: -1100%
+  }
+  
+  .footer-award-item.award13:before {
+    background-position-y: -1200%
+  }
+  
+  .footer-award-item.award14:before {
+    background-position-y: -1300%
+  }
+  
+  .footer-contact-sns {
+    position: relative;
+    height: 38px;
+    margin-right: 36px
+  }
+  
+  .footer-contact-icon {
+    display: inline-block;
+    width: 29px;
+    height: 29  px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 1px solid #4a4a4a;
+    background: url(C:\projects\mysite\static\img\talk.png) no-repeat #222;
+    background-size: 36px 252px;
+    overflow: hidden
+  }
+  
+  .footer-contact-icon:last-child {
+    margin-right: 0
+  }
+  
+  .footer-cell-foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 38px;
+    line-height: 38px
+  }
+  
+  .footer-contact-icon:hover {
+    background-color: #000
+  }
+  
+  
+  #footer-contact-blog {
+    background-position: 0 -72px
+  }
+  
+  #footer-contact-facebook {
+    background-position: 0 -108px;
+  }
+  
+  #footer-contact-instagram {
+    background-position: 0 -144px
+  }
+  
+  #footer-contact-naverpost {
+    background-position: 0 -180px
+  }
+  
+  .footer-bar {
+    display: inline-block;
+    margin: 0 8px
+  }
+  
+  .footer-none2,.footer-visible {
+    display: none
+  }
+  
+  .footer-br4 {
+    display: none
+  }
+  .footer-contact-icon:last-child {
+    margin-right: 0
+  }
+  
+  .footer-cell-foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 38px;
+    line-height: 38px
+  }
+  
+  .footer-contact-icon:hover {
+    background-color: #000
+  }
+  
+  #footer-contact-kakaotalk {
+    background-position: 0 0px
+  
+  }
+  
+  #footer-contact-blog {
+    background-position: 0 -72px
+  }
+  
+  #footer-contact-facebook {
+    background-position: 0 -108px
+  }
+  
+  #footer-contact-instagram {
+    background-position: 0 -144px
+  }
+  
+  #footer-contact-naverpost {
+    background-position: left
+  }
+  
+  .footer-bar {
+    display: inline-block;
+    margin: 0 8px
+  }
+  
+  .footer-none2,.footer-visible {
+    display: none
+  }
+  
+  .footer-br4 {
+    display: none
+  }
+  
